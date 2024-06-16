@@ -34,7 +34,7 @@ Object objects[] = {
 // Number of objects in the array
 int numObjects = sizeof(objects) / sizeof(objects[0]);
 
-int productIndex = 0;
+int productIndex = 1;
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -179,6 +179,7 @@ void showProduct(int productIndex)
 {
   display.clearDisplay();
 
+  // Show image
   for (int j = 0; j < pixelsPerRow*pixelsPerCol; j++) {
     if (objects[productIndex].data[j]) {
         int x = floor(j / pixelsPerRow);
@@ -187,6 +188,12 @@ void showProduct(int productIndex)
     }
   }
 
+  // Show price
+  display.setTextSize(2);
+  display.setTextColor(WHITE);
+  display.setRotation(3);
+  display.setCursor(0, pixelsPerCol + 10);
+  display.print(objects[productIndex].price);
   display.display();
 }
 
