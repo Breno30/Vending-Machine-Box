@@ -61,8 +61,8 @@ void setup()
 
   // Start display
   display.begin(SSD1306_SWITCHCAPVCC);
-  showProduct(productIndex % 2);
-
+  showText("Hi there!");
+    
   // Connects to wifi
   WiFi.begin(ssid, password);
 
@@ -229,5 +229,15 @@ void showQRCode(String qrCodeString)
       }
     }
   }
+  display.display();
+}
+
+void showText(String text) {
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(WHITE);
+  display.setRotation(3);
+  display.setCursor(0, 0);
+  display.print(text);
   display.display();
 }
