@@ -241,3 +241,22 @@ void showText(String text) {
   display.print(text);
   display.display();
 }
+
+void showProgressBar()
+{
+  display.clearDisplay();
+
+  for (int j = 0; j < 64; j++)
+  {
+
+    delay(64 - (j));
+    display.drawPixel(120, j, SSD1306_WHITE);
+    display.drawPixel(121, j, SSD1306_WHITE);
+    display.drawPixel(122, j, SSD1306_WHITE);
+    display.drawPixel(123, j, SSD1306_WHITE);
+    display.drawPixel(124, j, SSD1306_WHITE);
+    display.drawPixel(125, j, SSD1306_WHITE);
+    display.drawPixel(126, j, SSD1306_WHITE);
+    display.display();
+  }
+}
